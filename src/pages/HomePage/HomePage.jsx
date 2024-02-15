@@ -7,8 +7,10 @@ import Footer from "../../components/Footer/Footer";
 import { FaEye, FaRegCommentDots } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdDelete, MdOutlineDeleteForever } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="w-[70%] mx-auto">
@@ -52,7 +54,8 @@ const HomePage = () => {
             {blogData.map((blog, id) => (
               <div
                 key={id}
-                className="flex flex-col justify-start border-[1px] border-gray-200 p-4 rounded-md gap-4"
+                onClick={() => navigate("/blogs/:id")}
+                className="flex flex-col justify-start border-[1px] border-gray-200 p-4 rounded-md gap-4 cursor-pointer hover:shadow-md hover:border-gray-400"
               >
                 <div className="aspect-w-1 aspect-h-1 ">
                   <img
